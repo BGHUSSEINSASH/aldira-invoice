@@ -31,18 +31,15 @@ body{
   position:relative;
 }
 
-/* ══ OUTER FRAME (decorative double border around the sheet) ══ */
+/* ══ OUTER FRAME (single thin line, sharp corners — as in main PDF) ══ */
 .frame{
   position:absolute; inset:0; pointer-events:none; z-index:5;
 }
 .frame::before{
   content:""; position:absolute; inset:9px;
-  border:2px solid #1a1a1a;
+  border:2px solid #2e343a;
 }
-.frame::after{
-  content:""; position:absolute; inset:15px;
-  border:1px solid #1a1a1a;
-}
+.frame::after{ content:none; }
 
 /* ══ HEADER  (LTR layout: ALDIRA left | Shanasheel right) ══ */
 .header{
@@ -210,10 +207,17 @@ body{
 .f-icon{ font-size:14px; }
 .f-txt{ font-family:Arial,sans-serif; font-size:12px; }
 
+/* bottom decoration: 3 thin stripes (frame width) + thick dark bar (narrower, centered) */
+.footer-stripes{
+  height:12px;
+  margin:8px -37px 4px;
+  background:repeating-linear-gradient(to bottom,#2e343a 0 2px,#fff 2px 5px);
+}
 .footer-bar{
-  background:#2c2c2c;
-  height:20px;
-  margin:2px -50px 0;
+  background:#3a4149;
+  height:18px;
+  width:478px;
+  margin:0 auto;
 }
 
 /* ══ EDITABLE highlight ══ */
@@ -375,6 +379,7 @@ body.ed-on .ed:hover{ outline:1.5px dashed rgba(20,140,80,.5); outline-offset:1p
     </div>
   </div>
 
+  <div class="footer-stripes"></div>
   <div class="footer-bar"></div>
 
 </div>
